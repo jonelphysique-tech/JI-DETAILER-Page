@@ -1,0 +1,24 @@
+Copyright (c) 2026 JRB-iStruct. All rights reserved.
+
+JI-DETAILER is proprietary software. This repository is public for one purpose:
+distributing the compiled Windows installer and hosting the download page. The
+application source code is not published here and is not licensed to anyone.
+
+You may download and run the installer under the End User License Agreement
+included with it. You may not:
+
+  - reverse-engineer, decompile or disassemble the executable, or attempt to
+    bypass, disable or tamper with its licensing;
+  - redistribute, resell, sublicense or host the installer elsewhere;
+  - copy, modify or reuse the hosted page, its markup, styling or assets.
+
+No trademark rights are granted. "JI-DETAILER" and "JRB-iStruct" are marks of
+JRB-iStruct.
+
+AutoCAD is a registered trademark of Autodesk, Inc. JI-DETAILER is an
+independent product and is not affiliated with, authorised by, or endorsed by
+Autodesk.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. Output is a
+drafting aid; the engineer of record remains responsible for verifying every
+detail against the governing code and project documents.
