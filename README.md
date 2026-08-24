@@ -115,9 +115,9 @@ actually has a window open.
 
 ### Installing JI-DOCKS
 
-1. Open [Releases](../../releases) and find **JI-DOCKS 1.0.0**
-   (tag `ji-docks-v1.0.0`).
-2. Download `JI-DOCKS-Setup-1.0.0.exe` from **Assets**.
+1. Open [Releases](../../releases) and find the newest **JI-DOCKS** entry
+   (tagged `ji-docks-vX.Y.Z` — currently `ji-docks-v1.0.1`).
+2. Download `JI-DOCKS-Setup-<version>.exe` from **Assets**.
 3. Run it. It installs per-user, so it needs no administrator rights.
 
 Let the setup tick **Start JI-DOCKS when Windows starts** and the dock comes

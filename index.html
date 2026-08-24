@@ -500,7 +500,7 @@
     </div>
 
     <div class="actions" style="margin-top:34px">
-      <a class="btn primary" href="https://github.com/jonelphysique-tech/JI-DETAILER-Page/releases/tag/ji-docks-v1.0.0">Download JI-DOCKS — free</a>
+      <a class="btn primary" id="dockDownloadBtn" href="https://github.com/jonelphysique-tech/JI-DETAILER-Page/releases/tag/ji-docks-v1.0.1">Download JI-DOCKS — free</a>
       <a class="btn ghost" href="https://github.com/jonelphysique-tech/JI-DETAILER-Page/releases">All releases</a>
     </div>
     <p class="fineprint">
@@ -538,6 +538,10 @@
 (function () {
   var API = "https://api.github.com/repos/jonelphysique-tech/JI-DETAILER-Page/releases";
   var TAG = /^v(\d+(?:\.\d+){1,3})$/;
+  /* JI-DOCKS ships from this same repo under its own tag series. The two
+     patterns are mutually exclusive on purpose: a dock release must never be
+     read as a JI-DETAILER version, here or in the app's own update check. */
+  var DOCK_TAG = /^ji-docks-v(\d+(?:\.\d+){1,3})$/;
 
   function parse(v) { return v.split(".").map(Number); }
   function newer(a, b) {
@@ -553,12 +557,22 @@
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (list) {
       if (!Array.isArray(list)) return;
-      var best = null;
+      var best = null, bestDock = null;
       list.forEach(function (rel) {
         if (rel.draft || rel.prerelease) return;
-        var m = TAG.exec(rel.tag_name || "");
+        var tag = rel.tag_name || "";
+        var m = TAG.exec(tag);
         if (m && (!best || newer(m[1], best))) best = m[1];
+        var d = DOCK_TAG.exec(tag);
+        if (d && (!bestDock || newer(d[1], bestDock))) bestDock = d[1];
       });
+
+      var dockBtn = document.getElementById("dockDownloadBtn");
+      if (dockBtn && bestDock) {
+        dockBtn.href = "https://github.com/jonelphysique-tech/JI-DETAILER-Page"
+                     + "/releases/tag/ji-docks-v" + bestDock;
+      }
+
       if (!best) return;
 
       var stat = document.getElementById("statVersion");
